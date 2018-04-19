@@ -13,7 +13,10 @@
     "precommit": "npm run lint"
   },
   "dependencies": {
-    "nuxt": "^1.0.0"
+    "@nuxtjs/google-analytics": "^2.0.2",
+    "normalize.css": "^8.0.0",
+    "nuxt": "^1.0.0",
+    "vue-analytics": "^5.10.2"
   },
   "devDependencies": {
     "babel-eslint": "^8.2.1",

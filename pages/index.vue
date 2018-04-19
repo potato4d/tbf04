@@ -1,64 +1,246 @@
 <template>
-  <section class="container">
-    <div>
-      <app-logo/>
-      <h1 class="title">
-        tbf04
-      </h1>
-      <h2 class="subtitle">
-        Nuxt.js project
-      </h2>
-      <div class="links">
+  <section id="wrapper">
+    <TheCover class="the-cover" />
+    <header class="header">
+      <SlideInText :fontSize="18" :offset="3.6" :time="0.6">
+        2018/04/22(Sun) 技術書典04 か27<br>
+        帝都研究所 (c) potato4d
+      </SlideInText>
+      <SlideInText :fontSize="50" :offset="3.6" :time="0.8">
+        Nuxt tech book
+      </SlideInText>
+      <div class="flex">
+        <a href="https://techbookfest.org/event/tbf04/circle/17580004" target="_blank" class="button"
+          @click="$ga.event('move_to_official')"
+          >
+          技術書典公式ページへ
+        </a>
         <a
-          href="https://nuxtjs.org/"
-          target="_blank"
-          class="button--green">Documentation</a>
-        <a
-          href="https://github.com/nuxt/nuxt.js"
-          target="_blank"
-          class="button--grey">GitHub</a>
+          href="#"
+          class="button is-disabled"
+          @click="$ga.event('move_to_digital')">
+          電子版へ(Coming soon)
+        </a>
       </div>
+      <TheGirl />
+    </header>
+    <div class="container description">
+      <h1>Nuxt tech bookについて</h1>
+      <p>
+        Nuxt.js は日本でトップクラスに人気あるフロントエンドフレームワーク Vue.js をベースとした、フロントエンドのフルスタック開発フレームワークです。
+      </p>
+      <p>
+        Vue.js における SPA 開発でのベストプラクティスを規約ベースで提供し、更に独自のエコシステムのもと、 SSR, PWA といった、現代のフロントエンドにおけるポピュラーなトピックを網羅している、フロントエンド開発のこれからを変えうるポテンシャルを秘めています。
+      </p>
+      <p>
+        Nuxt tech book そんな Nuxt.js を、筆者が知り、学び、そして現場で利用することで培ってきたノウハウを凝縮して一冊にしたものとなります。
+        数十の Nuxt.js のプロジェクトに関わってきた経験を活かし、基本的な Nuxt.js の知識は勿論、 Realworld においての開発に役立つエッセンスが詰まっている本書との出会いは、きっとあなたのこれからのフロントエンド開発を変えることになるでしょう。
+      </p>
+      <p>
+        4/22(日) 技術書典4(か27) 秋葉原UDX アキバ・スクエア でお待ちしております。
+      </p>
+      <p class="text-right">
+        花谷拓磨(@potato4d)
+      </p>
+    </div>
+    <div class="container is-fluid is-green">
+      <div class="container">
+        <h1>目次ちら見</h1>
+        <div class="index-list">
+          <img src="~/assets/images/index.png" alt="目次">
+          <img src="~/assets/images/index_2.png" alt="目次">
+        </div>
+      </div>
+    </div>
+    <div class="container">
+      <h1>頒布情報</h1>
+      <dl>
+        <div>
+          <dt>タイトル</dt>
+          <dd>Nuxt tech book</dd>
+        </div>
+        <div>
+          <dt>サークル</dt>
+          <dd>帝都研究所 Produced by ElevenBack</dd>
+        </div>
+        <div>
+          <dt>著者</dt>
+          <dd>HANATANI Takuma(<a href="https://github.com/potato4d" target="_blank">@potato4d</a>)</dd>
+        </div>
+        <div>
+          <dt>頒布価格</dt>
+          <dd>2,000円</dd>
+        </div>
+        <div>
+          <dt>ダウンロード版URL</dt>
+          <dd>Coming soon...</dd>
+        </div>
+      </dl>
     </div>
   </section>
 </template>
 
 <script>
-import AppLogo from '~/components/AppLogo.vue'
+import TheCover from '~/components/TheCover.vue'
+import TheGirl from '~/components/TheGirl.vue'
+import SlideInText from '~/components/SlideInText.vue'
 
 export default {
   components: {
-    AppLogo
+    TheCover,
+    TheGirl,
+    SlideInText
   }
 }
 </script>
 
-<style>
-.container {
-  min-height: 100vh;
+<style scoped>
+#wrapper {
+  width: 100%;
+  height: 100vh;
+  min-height: 800px;
+  position: relative;
+}
+
+#wrapper .container,
+#wrapper .header {
+  max-width: 1250px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 10000000000;
+}
+
+.the-cover {
+  position: absolute;
+}
+
+.header {
+  height: calc(100% - 200px);
+  overflow: hidden;
   display: flex;
-  justify-content: center;
-  align-items: center;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  padding-left: 50px;
+  padding-top: 100px;
+}
+
+#wrapper .container.is-fluid {
+  max-width: initial;
+}
+
+#wrapper .container {
+  padding: 32px;
+  animation: wait 7.0s forwards;
+}
+
+#wrapper .container .container {
+  padding: 0;
+}
+
+.container.is-green {
+  color: #fff;
+  background: #4FC08D;
+}
+
+h1 {
   text-align: center;
+  line-height: 2.0;
+  margin: 0 auto 32px;
+  font-weight: normal;
 }
 
-.title {
-  font-family: "Quicksand", "Source Sans Pro", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif; /* 1 */
-  display: block;
-  font-weight: 300;
-  font-size: 100px;
-  color: #35495e;
-  letter-spacing: 1px;
+.index-list {
+  width: 100%;
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-around;
 }
 
-.subtitle {
-  font-weight: 300;
-  font-size: 42px;
-  color: #526488;
-  word-spacing: 5px;
-  padding-bottom: 15px;
+.index-list img {
+  width: 500px;
+  height: auto;
 }
 
-.links {
-  padding-top: 15px;
+dl {
+  width: 800px;
+  margin: 0 auto ;
+  font-size: 18px;
+}
+
+dl > div {
+  display: flex;
+}
+
+dl > div * {
+  width: 50%;
+  padding: 0 16px;
+  line-height: 2.0;
+}
+
+dl > div + div {
+  margin-top: 16px;
+}
+
+dl > div dt {
+  font-weight: bold;
+}
+
+.description p {
+  font-size: 18px;
+  line-height: 2.0;
+  color: #333;
+}
+
+.description p + p {
+  margin-top: 24px;
+}
+
+.text-right {
+  text-align: right;
+}
+
+.flex {
+  display: flex;
+  margin-left: 16px;
+  margin-top: 40px;
+  animation: wait 7.0s forwards;
+}
+
+.flex * + * {
+  margin-left: 16px;
+}
+
+.button {
+  color: #333;
+  font-weight: 300px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: #fff;
+  padding: 16px;
+  text-decoration: none;
+  box-shadow: 0 3px 8px rgba(0,0,0,0.16);
+  font-weight: bold;
+}
+
+.button.is-disabled {
+  color: #eee;
+  background: #bbb;
+}
+.button.is-disabled:hover {
+  color: #eee;
+  background: #bbb;
+}
+
+.button:hover {
+  background: #f9f9f9;
+}
+
+@keyframes wait {
+  0% { opacity: 0.0000001; }
+  90% { opacity: 0.0000001; }
+  96% { opacity: 1.0; }
+  100% { opacity: 1.0; }
 }
 </style>
