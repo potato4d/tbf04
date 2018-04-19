@@ -30,9 +30,9 @@ module.exports = {
   */
   loading: { color: '#3B8070' },
   modules: [
-    // ['@nuxtjs/google-analytics', {
-      // id: ''
-    // }]
+    ['@nuxtjs/google-analytics', {
+      id: 'UA-63818166-22'
+    }]
   ],
   router: {
     base: '/tbf04/'

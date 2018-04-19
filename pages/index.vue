@@ -3,11 +3,10 @@
     <TheCover class="the-cover" />
     <header class="header">
       <SlideInText :fontSize="18" :offset="3.6" :time="0.6">
-        2018/04/22(Sun) 技術書典04 か27<br>
-        帝都研究所 (c) potato4d
+        <img src="~/assets/images/aaa.svg">
       </SlideInText>
       <SlideInText :fontSize="50" :offset="3.6" :time="0.8">
-        Nuxt tech book
+        <img src="~/assets/images/nuxt_tech_book.svg">
       </SlideInText>
       <div class="flex">
         <a href="https://techbookfest.org/event/tbf04/circle/17580004" target="_blank" class="button"
