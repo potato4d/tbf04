@@ -76,6 +76,11 @@
           <dd>Coming soon...</dd>
         </div>
       </dl>
+      <div class="tweet-area">
+        <a href="https://twitter.com/intent/tweet?text=%E6%8A%80%E8%A1%93%E6%9B%B8%E5%85%B804%E6%96%B0%E5%88%8A%E3%80%8CNuxt%20tech%20book%E3%80%8D%202018/04/22%20(%E3%81%8B27)%20%E3%81%AB%E3%81%A6%E9%A0%92%E5%B8%83%EF%BC%81&url=https://potato4d.github.io/tbf04" class="button is-tweet">
+          つぶやく
+        </a>
+      </div>
     </div>
   </section>
 </template>
@@ -220,8 +225,27 @@ dl > div dt {
   background: #fff;
   padding: 16px;
   text-decoration: none;
-  box-shadow: 0 3px 8px rgba(0,0,0,0.16);
+  box-shadow: 0 3px 10px rgba(0,0,0,0.16);
   font-weight: bold;
+}
+
+.tweet-area {
+  text-align: center;
+  padding-top: 32px;
+}
+
+.button.is-tweet {
+  color: #fff;
+  background: #1CA1F2;
+  padding: 16px 24px;
+  margin: 0 auto;
+  font-weight: bold;
+  transition: all 0.15s ease-out;
+}
+
+.button.is-tweet:hover {
+  color: #fff;
+  background: #1688D4;
 }
 
 .button.is-disabled {
